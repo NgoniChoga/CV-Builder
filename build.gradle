@@ -1,0 +1,40 @@
+group 'CV-Builder'
+version '1.0-SNAPSHOT'
+
+
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:0.5.0.M5")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+jar {
+    baseName = 'CV-Builder'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    String springBootVersion = "0.5.0.M5"
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "jmock:jmock:1.1.0"
+    testCompile "org.jmockit:jmockit:1.30"
+    compileOnly "org.projectlombok:lombok:1.16.16"
+}
