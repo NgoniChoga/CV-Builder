@@ -33,7 +33,7 @@ public class PersistenceJPAConfig {
         return em;
     }
     
-    @Bean
+    @Bean(name = "devDataSource")
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");

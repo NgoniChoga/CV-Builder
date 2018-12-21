@@ -21,11 +21,13 @@ import lombok.Setter;
 @Entity
 public class Account extends IdFields {
     
-    private String firstName;
     private Title title;
+    private String firstName;
     private String surname;
-    private Long cellphone;
+    private String email;
+    private Long cellNumber;
     private Date dateOfBirth;
+    private String password;
     @OneToOne
     private Address address;
 }
