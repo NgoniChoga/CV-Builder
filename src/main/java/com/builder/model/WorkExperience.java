@@ -1,8 +1,10 @@
 package com.builder.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 
-import com.builder.model.helpers.BuilderFields;
+import com.builder.model.helpers.IdFields;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +17,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class WorkExperience extends BuilderFields {
-    public String nameOfCompany;
-    public String jobTitle;
+public class WorkExperience extends IdFields {
+    
+    private Date startDate;
+    private Date endDate;
+    private String nameOfCompany;
+    private String jobTitle;
 }

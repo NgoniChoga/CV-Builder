@@ -17,9 +17,9 @@ import lombok.Setter;
 @Entity
 public class Address extends IdFields {
     
-    public String complex;
-    public String street;
-    public String suburb;
-    public String city;
-    public String country;
+    private String complex;
+    private String street;
+    private String suburb;
+    private String city;
+    private String country;
 }

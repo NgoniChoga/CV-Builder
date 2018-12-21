@@ -16,6 +16,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Summary extends IdFields {
-    public String title;
-    public String summary;
+    
+    private String title;
+    private String summary;
 }

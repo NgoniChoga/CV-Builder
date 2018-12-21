@@ -2,7 +2,6 @@ package com.builder.model;
 
 import javax.persistence.Entity;
 
-import com.builder.model.enums.SkillLevel;
 import com.builder.model.helpers.IdFields;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,8 +15,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Skills extends IdFields {
+public class PersonalReferences extends IdFields {
     
     private String name;
-    private SkillLevel skillLevel;
+    private Long cellphone;
+    private String company;
+    private String workRelationship;
 }
