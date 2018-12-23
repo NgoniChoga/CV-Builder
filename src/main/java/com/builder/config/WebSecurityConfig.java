@@ -27,6 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/fonts/**","/css/**", "/js/**","/img/**")
+                .permitAll()
                 .antMatchers("/", "/home", "/signUp", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -48,7 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         
         auth.jdbcAuthentication()
-                .usersByUsernameQuery("SELECT email, password, archived FROM Account WHERE email=?")
+                .usersByUsernameQuery("SELECT email, password, archive FROM Account WHERE email=?")
                 //.authoritiesByUsernameQuery("SELECT email, role, archived FROM Account WHERE email=?")
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);

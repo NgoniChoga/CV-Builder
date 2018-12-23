@@ -1,5 +1,9 @@
 package com.builder.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +21,7 @@ import com.builder.model.Account;
 import com.builder.model.Address;
 import com.builder.service.AccountService;
 import com.builder.service.AddressService;
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -25,6 +30,7 @@ import com.builder.service.AddressService;
  **/
 
 @Controller
+@Slf4j
 public class CreateAccount {
     
     @Autowired
@@ -45,17 +51,29 @@ public class CreateAccount {
     }
     
     @PostMapping("/signUp")
-    public ModelAndView registration(@Valid String pass, @Valid Address address, @Valid Account account, BindingResult result, WebRequest webRequest, Error error) {
+    public ModelAndView registration(@Valid String dateOfBirth, @Valid String pass, @Valid Address address, @Valid Account account, BindingResult result, WebRequest webRequest, Error error) {
         account.setAddress(address);
         account.setPassword(hashedPassword(pass));
+        account.setDateOfBirth(dateFormat(dateOfBirth));
         
         addressService.save(address);
         accountService.save(account);
         
-        return new ModelAndView("login");
+        return new ModelAndView("home");
     }
     
-    protected String hashedPassword(String password) {
+    private String hashedPassword(String password) {
         return encoder.encode(password);
+    }
+    
+    private Date dateFormat(String date) {
+        
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        } catch (ParseException e) {
+            log.error("Could not convert string to date: ", e.getMessage());
+        }
+        
+        return null;
     }
 }
