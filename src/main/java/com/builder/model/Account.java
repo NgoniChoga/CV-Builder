@@ -30,4 +30,5 @@ public class Account extends IdFields {
     private String password;
     @OneToOne
     private Address address;
+    private boolean enable = true;
 }

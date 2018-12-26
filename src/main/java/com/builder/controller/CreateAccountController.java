@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class CreateAccount {
+public class CreateAccountController {
     
     @Autowired
     private AccountService accountService;
@@ -59,7 +59,7 @@ public class CreateAccount {
         addressService.save(address);
         accountService.save(account);
         
-        return new ModelAndView("home");
+        return new ModelAndView("login");
     }
     
     private String hashedPassword(String password) {
