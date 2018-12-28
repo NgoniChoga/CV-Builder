@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+	<div th:replace="components/header :: header"/>
+	<body>
+		<!-- Navigation -->
+		<div th:replace="components/dashboardNav :: dashboardNav"/>
+
+		<div class="page-content">
+    		<div class="row">
+				<div th:replace="components/sideNav :: navbar"/>
+
+				<div class="col-md-10">
+					<div class="row">
+		  				<div class="col-md-10">
+		  					<div class="content-box-large">
+		  						<div class="panel-heading">
+									<div class="panel-title">Education</div>
+								</div>
+
+								<div class="panel-body">
+
+								</div>
+		  					</div>
+		  				</div>
+		  			</div>
+		  		</div>
+			</div>
+    	</div>
+
+		<div th:replace="components/footer :: footer"/>
+  </body>
+</html>

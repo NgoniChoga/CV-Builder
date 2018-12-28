@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+    <div th:fragment="navbar">
+        <div class="col-md-2">
+            <div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+
+                    <form id="personalDetail" th:action="@{/personalDetails}" method="get">
+                    </form>
+                    <form id="workExperience" th:action="@{/workExperience}" method="get">
+                    </form>
+                    <form id="education" th:action="@{/education}" method="get">
+                    </form>
+                    <form id="technicalSkills" th:action="@{/technicalSkills}" method="get">
+                    </form>
+                    <form id="certifications" th:action="@{/certifications}" method="get">
+                    </form>
+                    <form id="hobbies" th:action="@{/hobbies}" method="get">
+                    </form>
+                    <form id="references" th:action="@{/references}" method="get">
+                    </form>
+
+                    <li th:class="${}">
+                        <a type="submit" value="personalDetails" href="javascript:{}" onclick="document.getElementById('personalDetails').submit();">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Personal Detail
+                        </a>
+                    </li>
+                    <li th:class="${}">
+                        <a type="submit" value="workExperience" href="javascript:{}" onclick="document.getElementById('workExperience').submit();">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Work Experience
+                        </a>
+                    </li>
+                    <li th:class="${}">
+                        <a type="submit" value="education" href="javascript:{}" onclick="document.getElementById('education').submit();">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Education
+                        </a>
+                    </li>
+                    <li th:class="${}">
+                        <a type="submit" value="technicalSkills" href="javascript:{}" onclick="document.getElementById('technicalSkills').submit();">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Technical Skills
+                        </a>
+                    </li>
+                    <li th:class="${}">
+                        <a type="submit" value="certifications" href="javascript:{}" onclick="document.getElementById('certifications').submit();">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Certifications
+                        </a>
+                    </li>
+                    <li th:class="${}">
+                        <a type="submit" value="hobbies" href="javascript:{}" onclick="document.getElementById('hobbies').submit();">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Hobbies
+                        </a>
+                    </li>
+                    <li th:class="${}">
+                        <a type="submit" value="references" href="javascript:{}" onclick="document.getElementById('references').submit();">
+                            <i class="glyphicon glyphicon-home"></i>
+                            References
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div th:replace="components/footer :: footer"/>
+    </div>
+</html>

@@ -39,41 +39,17 @@ public class CreateAccountController {
     @Autowired
     private AddressService addressService;
     
-    @Autowired
-    private BCryptPasswordEncoder encoder;
-    
-    private AccountManager manager = new AccountManager();
-    
-    
-    @GetMapping("/signUp")
-    public String createSingleAccount(WebRequest webRequest, Model model) {
-        return "signUp";
-    }
+    private AccountManager accountManager = new AccountManager();
     
     @PostMapping("/signUp")
     public ModelAndView registration(@Valid String dateOfBirth, @Valid String pass, @Valid Address address, @Valid Account account, BindingResult result, WebRequest webRequest, Error error) {
         account.setAddress(address);
-        account.setPassword(hashedPassword(pass));
-        account.setDateOfBirth(dateFormat(dateOfBirth));
+        account.setPassword(accountManager.hashedPassword(pass));
+        account.setDateOfBirth(accountManager.dateFormat(dateOfBirth));
         
         addressService.save(address);
         accountService.save(account);
         
         return new ModelAndView("login");
-    }
-    
-    private String hashedPassword(String password) {
-        return encoder.encode(password);
-    }
-    
-    private Date dateFormat(String date) {
-        
-        try {
-            return new SimpleDateFormat("yyyy-MM-dd").parse(date);
-        } catch (ParseException e) {
-            log.error("Could not convert string to date: ", e.getMessage());
-        }
-        
-        return null;
     }
 }
