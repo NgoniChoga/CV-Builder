@@ -17,6 +17,7 @@ import lombok.Setter;
 @Entity
 public class Hobbies extends IdFields {
     
+    private Account account;
     private String nameOfHobbie;
     private String description;
 }

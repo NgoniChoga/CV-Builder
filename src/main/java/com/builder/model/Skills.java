@@ -18,6 +18,7 @@ import lombok.Setter;
 @Entity
 public class Skills extends IdFields {
     
+    private Account account;
     private String name;
     private SkillLevel skillLevel;
 }

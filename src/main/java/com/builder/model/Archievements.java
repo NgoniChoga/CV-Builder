@@ -19,6 +19,7 @@ import lombok.Setter;
 @Entity
 public class Archievements extends IdFields {
     
+    private Account account;
     private String nameOfAward;
     private Date yearOfAward;
 }

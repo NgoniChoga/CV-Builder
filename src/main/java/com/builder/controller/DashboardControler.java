@@ -2,6 +2,7 @@ package com.builder.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,17 +10,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import lombok.extern.slf4j.Slf4j;
+
+
 /**
  * @author nicholaschoga
  * @project CV-Builder
  **/
 
-
+@Controller
+@Slf4j
 public class DashboardControler {
     
     @GetMapping("/personalDetails")
     public String getPersonalDetail(WebRequest webRequest, Model model) {
-        return "personalDetail";
+        model.addAttribute("pd", "current");
+        return "personalDetails";
     }
     
     @PostMapping("/personalDetails")
@@ -29,6 +35,7 @@ public class DashboardControler {
     
     @GetMapping("/workExperience")
     public String getWorkExperience(WebRequest webRequest, Model model) {
+        model.addAttribute("we", "current");
         return "workExperience";
     }
     
@@ -39,6 +46,7 @@ public class DashboardControler {
     
     @GetMapping("/education")
     public String getEducation(WebRequest webRequest, Model model) {
+        model.addAttribute("edu", "current");
         return "education";
     }
     
@@ -49,6 +57,7 @@ public class DashboardControler {
     
     @GetMapping("/technicalSkills")
     public String getTechnicalSkills(WebRequest webRequest, Model model) {
+        model.addAttribute("ts", "current");
         return "technicalSkills";
     }
     
@@ -59,6 +68,7 @@ public class DashboardControler {
     
     @GetMapping("/certifications")
     public String getCertifications(WebRequest webRequest, Model model) {
+        model.addAttribute("cert", "current");
         return "certifications";
     }
     
@@ -69,6 +79,7 @@ public class DashboardControler {
     
     @GetMapping("/hobbies")
     public String getHobbies(WebRequest webRequest, Model model) {
+        model.addAttribute("hobbies", "current");
         return "hobbies";
     }
     
@@ -79,6 +90,7 @@ public class DashboardControler {
     
     @GetMapping("/references")
     public String getReferences(WebRequest webRequest, Model model) {
+        model.addAttribute("refs", "current");
         return "references";
     }
     

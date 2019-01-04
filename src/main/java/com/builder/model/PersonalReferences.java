@@ -17,6 +17,7 @@ import lombok.Setter;
 @Entity
 public class PersonalReferences extends IdFields {
     
+    private Account account;
     private String name;
     private Long cellphone;
     private String company;

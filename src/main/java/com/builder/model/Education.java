@@ -19,6 +19,7 @@ import lombok.Setter;
 @Entity
 public class Education extends IdFields {
     
+    private Account account;
     private Date startDate;
     private Date endDate;
     private String nameOfSchool;

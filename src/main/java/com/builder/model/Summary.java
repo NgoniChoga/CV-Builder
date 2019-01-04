@@ -17,6 +17,7 @@ import lombok.Setter;
 @Entity
 public class Summary extends IdFields {
     
+    private Account account;
     private String title;
     private String summary;
 }
