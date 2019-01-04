@@ -3,7 +3,7 @@ package com.builder.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.builder.model.enums.Title;
 import com.builder.model.helpers.IdFields;
@@ -28,7 +28,7 @@ public class Account extends IdFields {
     private Long cellNumber;
     private Date dateOfBirth;
     private String password;
-    @OneToMany
+    @OneToOne
     private Address address;
     private boolean enable = true;
 }

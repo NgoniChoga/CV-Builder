@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +23,11 @@ public class AccountManager {
     
     @Autowired
     private BCryptPasswordEncoder encoder;
+    
+    public String getUsername() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return ((User)principal).getUsername();
+    }
     
     public String hashedPassword(String password) {
         return encoder.encode(password);

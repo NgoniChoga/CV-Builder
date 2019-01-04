@@ -11,10 +11,15 @@ import com.builder.model.Account;
 @Service
 @Transactional
 public class AccountService {
+    
     @Autowired
     private AccountDao accountDao;
     
     public void save(final Account account) {
         accountDao.save(account);
+    }
+    
+    public Account getAccountByEmail(String email) {
+        return accountDao.getAccountByEmail(email);
     }
 }
