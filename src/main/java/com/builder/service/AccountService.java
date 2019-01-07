@@ -19,7 +19,7 @@ public class AccountService {
         accountDao.save(account);
     }
     
-    public Account getAccountByEmail(String email) {
-        return accountDao.getAccountByEmail(email);
+    public Account getAccountByUsername(String email) {
+        return accountDao.getAccountByUsername(email);
     }
 }

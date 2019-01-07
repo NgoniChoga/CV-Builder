@@ -23,7 +23,7 @@
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-					<form id="login" th:action="@{/loginPage}" method="post">
+					<form id="login" th:action="@{/login}" method="post">
 					</form>
 
 					<ul class="nav navbar-nav navbar-right">
@@ -222,6 +222,15 @@
 										<p class="help-block text-danger"></p>
 									</div>
 								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="email" class="form-control" placeholder="Your Username *" name="username" required="" data-validation-required-message="Please enter your username.">
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="clearfix"></div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">

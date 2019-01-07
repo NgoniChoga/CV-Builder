@@ -8,5 +8,5 @@ import com.builder.model.Account;
 @Transactional
 public interface AccountDao extends CrudRepository<Account, Long> {
     
-    public Account getAccountByEmail(String email);
+    Account getAccountByUsername(String username);
 }

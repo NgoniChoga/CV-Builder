@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.builder.managers.AccountManager;
 import com.builder.model.Account;
+import com.builder.model.Address;
 import com.builder.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,25 +28,11 @@ import lombok.extern.slf4j.Slf4j;
 public class DashboardController {
     
     @Autowired
-    private AccountService accountService;
+    AccountService accountService;
     
     AccountManager accountManager = new AccountManager();
     
-    @GetMapping("/personalDetails")
-    public String getPersonalDetail(WebRequest webRequest, Model model) {
-    
-        Account account = accountService.getAccountByEmail(accountManager.getUsername());
-
-        model.addAttribute("pd", "current");
-        model.addAttribute("account", account);
-        
-        return "personalDetails";
-    }
-    
-    @PostMapping("/personalDetails")
-    public ModelAndView savePersonalDetail(@Valid String dateOfBirth, BindingResult result, WebRequest webRequest, Error error) {
-        return new ModelAndView("personalDetails");
-    }
+    Account account;
     
     @GetMapping("/workExperience")
     public String getWorkExperience(WebRequest webRequest, Model model) {

@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/personalDetails")
-                .usernameParameter("email")
+                .usernameParameter("username")
                 .passwordParameter("password")
                 .permitAll()
                 .and()
@@ -50,8 +50,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         
         auth.jdbcAuthentication()
-                .usersByUsernameQuery("SELECT email, password, enable FROM Account WHERE email=?")
-                .authoritiesByUsernameQuery("SELECT email, enable FROM Account WHERE email=?")
+                .usersByUsernameQuery("SELECT username, password, enable FROM Account WHERE username=?")
+                .authoritiesByUsernameQuery("SELECT username, enable FROM Account WHERE username=?")
                 .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
     }
