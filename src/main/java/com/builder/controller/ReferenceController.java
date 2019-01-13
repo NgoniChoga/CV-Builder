@@ -2,7 +2,6 @@ package com.builder.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,10 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.builder.managers.AccountManager;
-import com.builder.model.Account;
-import com.builder.model.Address;
-import com.builder.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -25,12 +20,15 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class DashboardController {
+public class ReferenceController {
+    @GetMapping("/references")
+    public String getReferences(WebRequest webRequest, Model model) {
+        model.addAttribute("refs", "current");
+        return "references";
+    }
     
-    @Autowired
-    AccountService accountService;
-    
-    AccountManager accountManager = new AccountManager();
-    
-    Account account;
+    @PostMapping("/references")
+    public ModelAndView saveReferences(@Valid String dateOfBirth, BindingResult result, WebRequest webRequest, Error error) {
+        return new ModelAndView("references");
+    }
 }

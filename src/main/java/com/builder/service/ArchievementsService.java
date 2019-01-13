@@ -4,18 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.builder.dao.AccountDao;
-import com.builder.model.Account;
+import com.builder.dao.ArchievementsDao;
+import com.builder.model.Archievement;
 
 
 @Service
 @Transactional
-public class AccountService {
-    
+public class ArchievementsService {
+
     @Autowired
-    private AccountDao accountDao;
+    ArchievementsDao archievementsDao;
     
-    public void save(final Account account) {
-        accountDao.save(account);
+    public void save(Archievement archievement) {
+        archievementsDao.save(archievement);
     }
 }

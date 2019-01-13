@@ -1,7 +1,5 @@
 package com.builder.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 
 import com.builder.model.helpers.IdFields;
@@ -17,9 +15,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Archievements extends IdFields {
+public class PersonalReference extends IdFields {
     
     private Account account;
-    private String nameOfAward;
-    private Date yearOfAward;
+    private String name;
+    private Long cellphone;
+    private String company;
+    private String workRelationship;
 }

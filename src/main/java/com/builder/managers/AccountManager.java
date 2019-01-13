@@ -21,13 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AccountManager {
     
-    @Autowired
-    private BCryptPasswordEncoder encoder;
-    
-    public String getUsername() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ((User)principal).getUsername();
-    }
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     
     public String hashedPassword(String password) {
         return encoder.encode(password);

@@ -5,5 +5,16 @@ package com.builder.model.enums;
  * @project CV-Builder
  **/
 public enum Title {
-    MR, MRS, MISS, DR, MS, MX;
+    MR("mr"),
+    MRS("mrs"),
+    MISS("miss"),
+    DR("dr"),
+    MS("ms"),
+    MX("mx");
+    
+    private String id;
+    
+    private Title(String id) {
+        this.id = id;
+    }
 }

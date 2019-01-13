@@ -2,7 +2,6 @@ package com.builder.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,10 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.builder.managers.AccountManager;
-import com.builder.model.Account;
-import com.builder.model.Address;
-import com.builder.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -25,12 +20,16 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class DashboardController {
+public class TechnicalSkillController {
+    @GetMapping("/technicalSkills")
+    public String getTechnicalSkills(WebRequest webRequest, Model model) {
+        model.addAttribute("ts", "current");
+        return "technicalSkills";
+    }
     
-    @Autowired
-    AccountService accountService;
+    @PostMapping("/technicalSkills")
+    public ModelAndView saveTechnicalSkills(@Valid String dateOfBirth, BindingResult result, WebRequest webRequest, Error error) {
+        return new ModelAndView("technicalSkills");
+    }
     
-    AccountManager accountManager = new AccountManager();
-    
-    Account account;
 }

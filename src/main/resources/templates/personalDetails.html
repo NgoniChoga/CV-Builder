@@ -23,57 +23,57 @@
 									<form th:action="@{/personalDetails}" method="post" class="form-horizontal">
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="title" th:placeholder="${account.title}" class="form-control"/>
+												<input type="text" name="title" th:value="${account.title}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="fistname" th:placeholder="${account.firstName}" class="form-control"/>
+												<input type="text" name="firstName" th:value="${account.firstName}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="surname" th:placeholder="${account.surname}" class="form-control"/>
+												<input type="text" name="surname" th:value="${account.surname}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="email" th:placeholder="${account.email}" class="form-control"/>
+												<input type="text" name="email" th:value="${account.email}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="cellNumber" th:placeholder="${account.cellNumber}" class="form-control"/>
+												<input type="text" name="cellNumber" th:value="${account.cellNumber}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="dateOfBirth" th:placeholder="${account.dateOfBirth}" class="form-control"/>
+												<input type="date" name="DOB" th:value="${account.dateOfBirth}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="complex" th:placeholder="${account.address.complex}" class="form-control"/>
+												<input type="text" name="complex" th:value="${account.address.complex}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="street" th:placeholder="${account.address.street}" class="form-control"/>
+												<input type="text" name="street" th:value="${account.address.street}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="suburb" th:placeholder="${account.address.suburb}" class="form-control"/>
+												<input type="text" name="suburb" th:value="${account.address.suburb}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="city" th:placeholder="${account.address.city}" class="form-control"/>
+												<input type="text" name="city" th:value="${account.address.city}" class="form-control"/>
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-lg-12 text-center">
-												<input type="text" name="country" th:placeholder="${account.address.country}" class="form-control"/>
+												<input type="text" name="country" th:value="${account.address.country}" class="form-control"/>
 											</div>
 										</div>
 

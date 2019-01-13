@@ -4,18 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.builder.dao.AccountDao;
-import com.builder.model.Account;
+import com.builder.dao.SummaryDao;
+import com.builder.model.Summary;
 
 
 @Service
 @Transactional
-public class AccountService {
-    
+public class SummaryService {
+
     @Autowired
-    private AccountDao accountDao;
+    SummaryDao summaryDao;
     
-    public void save(final Account account) {
-        accountDao.save(account);
+    public void save(Summary summary) {
+        summaryDao.save(summary);
     }
 }
