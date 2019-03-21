@@ -1,6 +1,6 @@
 package com.builder.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import com.builder.model.enums.SkillLevel;
 import com.builder.model.helpers.IdFields;
@@ -17,8 +17,14 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Skills extends IdFields {
-    
+    @ManyToOne
+    @JoinColumn(name = "account_id")
     private Account account;
+    
+    @Column(nullable = false)
     private String name;
+    
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private SkillLevel skillLevel;
 }

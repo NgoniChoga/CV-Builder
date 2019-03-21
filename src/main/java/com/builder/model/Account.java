@@ -2,10 +2,9 @@ package com.builder.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 
-import com.builder.model.enums.Title;
 import com.builder.model.helpers.IdFields;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,14 +19,35 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Account extends IdFields {
-    
+    @Column(nullable = false)
     private String title;
+    
+    @Column(nullable = false)
     private String firstName;
+    
+    @Column(nullable = false)
     private String surname;
+    
+    @Column(nullable = false, unique = true)
     private String email;
+    
+    @Column(nullable = false)
     private Long cellNumber;
+    
+    @Column(nullable = false)
     private Date dateOfBirth;
     
-    @OneToOne
-    private Address address;
+    private String complex;
+    
+    @Column(nullable = false)
+    private String street;
+    
+    @Column(nullable = false)
+    private String suburb;
+    
+    @Column(nullable = false)
+    private String city;
+    
+    @Column(nullable = false)
+    private String country;
 }

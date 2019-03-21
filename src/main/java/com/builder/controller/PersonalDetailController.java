@@ -14,10 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.builder.managers.AccountManager;
 import com.builder.managers.PersonalDetailManager;
 import com.builder.model.Account;
-import com.builder.model.Address;
 import com.builder.model.Auth;
 import com.builder.service.AccountService;
-import com.builder.service.AddressService;
 import com.builder.service.AuthService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,9 +31,6 @@ public class PersonalDetailController{
     
     @Autowired
     private AccountService accountService;
-    
-    @Autowired
-    private AddressService addressService;
     
     @Autowired
     private AuthService authService;
@@ -59,15 +54,11 @@ public class PersonalDetailController{
     }
     
     @PostMapping("/personalDetails")
-    public ModelAndView savePersonalDetail(@Valid String DOB, @Valid Address address, @Valid Account newAccount, BindingResult result, WebRequest webRequest, Error error) {
+    public ModelAndView savePersonalDetail(@Valid String DOB, @Valid Account newAccount, BindingResult result, WebRequest webRequest, Error error) {
         
         newAccount.setId(account.getId());
-        newAccount.setAddress(address);
         newAccount.setDateOfBirth(accountManager.dateFormat(DOB));
         
-        address.setId(account.getAddress().getId());
-    
-        addressService.save(address);
         accountService.save(newAccount);
         
         return new ModelAndView("personalDetails");
