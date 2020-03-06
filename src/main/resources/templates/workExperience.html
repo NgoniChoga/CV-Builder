@@ -18,9 +18,39 @@
 		  						<div class="panel-heading">
 									<div class="panel-title">Work Experience</div>
 								</div>
-
 								<div class="panel-body">
-
+									<form th:action="@{/workExperience}" method="post" class="form-horizontal">
+										<div class="form-group">
+											<div class="col-lg-12 text-center">
+												<input type="text" name="nameOfCompany" placeholder="Company name" th:value="${workExperience?.nameOfCompany}" class="form-control"/>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<div class="col-lg-12 text-center">
+												<input type="text" name="jobTitle" placeholder="Job Title" th:value="${workExperience?.jobTitle}" class="form-control"/>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<div class="col-lg-12 text-center">
+												<input type="date" name="startDate" placeholder="Start date" th:value="${#dates.format(workExperience?.startDate, 'yyyy-MM-dd')}" class="form-control"/>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<div class="col-lg-12 text-center">
+												<input type="date" name="endDate" placeholder="End date" th:value="${#dates.format(workExperience?.endDate, 'yyyy-MM-dd')}" class="form-control"/>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<div class="col-lg-12 text-center">
+												<div id="update"></div>
+												<button type="submit" class="btn">Update</button>
+											</div>
+										</div>
+									</form>
 								</div>
 		  					</div>
 		  				</div>

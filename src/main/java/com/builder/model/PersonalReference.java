@@ -19,6 +19,11 @@ import lombok.Setter;
 @Setter
 @Entity
 public class PersonalReference extends IdFields {
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4236507068908426451L;
+
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;

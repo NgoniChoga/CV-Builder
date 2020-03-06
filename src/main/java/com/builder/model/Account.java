@@ -19,6 +19,11 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Account extends IdFields {
+    /**
+     *static final serialVersionUID
+     */
+    private static final long serialVersionUID = 7339915910313107543L;
+
     @Column(nullable = false)
     private String title;
     
@@ -36,8 +41,6 @@ public class Account extends IdFields {
     
     @Column(nullable = false)
     private Date dateOfBirth;
-    
-    private String complex;
     
     @Column(nullable = false)
     private String street;

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import com.builder.managers.AccountManager;
 import com.builder.model.Account;
 import com.builder.service.AccountService;
-import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -15,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
  **/
 
 @Controller
-@Slf4j
 public class DashboardController {
     
     @Autowired

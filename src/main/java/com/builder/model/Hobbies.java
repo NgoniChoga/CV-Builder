@@ -19,6 +19,11 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Hobbies extends IdFields {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 6944019500305049141L;
+
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;

@@ -21,6 +21,11 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Archievement extends IdFields {
+    /**
+     *
+     */
+    private static final long serialVersionUID = -5774345190959131604L;
+
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;

@@ -1,5 +1,8 @@
 package com.builder.controller;
 
+import java.util.Date;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +20,8 @@ import com.builder.model.Account;
 import com.builder.model.Auth;
 import com.builder.service.AccountService;
 import com.builder.service.AuthService;
-import lombok.extern.slf4j.Slf4j;
+
+import org.joda.time.DateTime;
 
 
 /**
@@ -26,7 +30,6 @@ import lombok.extern.slf4j.Slf4j;
  **/
 
 @Controller
-@Slf4j
 public class PersonalDetailController{
     
     @Autowired
@@ -55,7 +58,7 @@ public class PersonalDetailController{
     
     @PostMapping("/personalDetails")
     public ModelAndView savePersonalDetail(@Valid String DOB, @Valid Account newAccount, BindingResult result, WebRequest webRequest, Error error) {
-        
+    	
         newAccount.setId(account.getId());
         newAccount.setDateOfBirth(accountManager.dateFormat(DOB));
         

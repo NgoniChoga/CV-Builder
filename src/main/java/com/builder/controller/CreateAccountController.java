@@ -14,7 +14,6 @@ import com.builder.model.Account;
 import com.builder.model.Auth;
 import com.builder.service.AccountService;
 import com.builder.service.AuthService;
-import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -23,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
  **/
 
 @Controller
-@Slf4j
 public class CreateAccountController {
     
     @Autowired
